@@ -38,37 +38,18 @@ if (! class_exists('Plugin_Name_AdminTabs')) {
 
           public function display_plugin_name_admintabs() {
                return '
-               <div class="plugin-name-settings">
-                    <ul class="tabs">
-                         <li><a href="#tab1">Welcome</a></li>
-                         <li><a href="#tab2">Settings</a></li>
-                         <li><a href="#tab3">Services</a></li>
-                         <li><a href="#tab4">Support</a></li>
-                         <li><a href="#tab5">Blogs</a></li>
-                    </ul>
+               <div class="idss">
+                    <a href="#tab1">Tab 1</a>
+                    <a href="#tab2">Tab 2</a>
+                    <a href="#tab3">Tab 3</a>
+                    <!-- Add more tabs as needed -->
+               </div>
+               ';
+          }
 
-                    <div id="tab1" class="tab-content">
-                         <!-- Content for Welcome tab -->
-                         tab1
-                    </div>
 
-                    <div id="tab2" class="tab-content">
-                         <!-- Content for Settings tab -->tab2
-                    </div>
-
-                    <div id="tab3" class="tab-content">
-                         <!-- Content for Services tab -->tab3
-                    </div>
-
-                    <div id="tab4" class="tab-content">
-                         <!-- Content for Support tab -->tab4
-                    </div>
-
-                    <div id="tab5" class="tab-content">
-                         <!-- Content for Blogs tab -->tab5
-                    </div>
-                    </div>
-
+          public function display_plugin_name_admintabs_content() {
+               return '
                ';
           }
 

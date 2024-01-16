@@ -8,6 +8,29 @@ li#toplevel_page_plugin_name a.menu-top {
     background: yellow !important;
     color: #000 !important;
 }
+.header-menu {
+   display: flex;
+}
+.header-menu span {
+   margin: 1px 8px;
+}
+/* Add your styling here, if needed */
+.idss {
+   list-style: none;
+   display: inline-grid;
+}
+.tab-content {
+   display: none;
+}
+
+.tab-content.active {
+   display: block;
+
+}
+
+.tabactive {
+   /* Add your active tab styling here */
+}
 
 
 /** TABS */

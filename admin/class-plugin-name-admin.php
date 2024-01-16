@@ -43,7 +43,7 @@ class Plugin_Name_Admin {
 	/**
 	 * The Admin Tabs .
 	 */
-	private $getAdminTabs;
+	//private $getAdminTabs;
 
 	/**
 	 * Initialize the class and set its properties.
@@ -57,7 +57,7 @@ class Plugin_Name_Admin {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
-		$this->getAdminTabs = new Plugin_Name_AdminTabs();
+		//$this->getAdminTabs = new Plugin_Name_AdminTabs();
 
 		// Hook into the WordPress admin menu action.
         add_action( 'admin_menu', array( $this, 'add_admin_page_suffix' ) );
@@ -140,7 +140,7 @@ class Plugin_Name_Admin {
 			return;
 		}
 
-		$tabsoutput = $this->getAdminTabs->display_plugin_name_admintabs();
+		//$tabsoutput = $this->getAdminTabs->display_plugin_name_admintabs();
 		
 		// Output the admin page HTML here.
 		require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-display.php';

@@ -97,3 +97,14 @@ The homepage is based on a design as provided by [HTML5Up](http://html5up.net), 
 ## Documentation, FAQs, and More
 
 If you’re interested in writing any documentation or creating tutorials please [let me know](http://gloriousmotive.com/contact/) .
+
+
+## Documentation to SVN
+* First Copy the PLUGIN SVN Link `"https://plugin.svn.wordpress.org/PLUGIN-NAME"`
+* Then Create a New Folder with the PLUGINNAME and Open VSCODE Terminal
+* Now `"SVN co https://plugin.svn.wordpress.org/PLUGIN-NAME"`
+* Make Required Changes
+* Then `svn st`
+* Then `svn add FILENAME`
+* Finally `svn --username=gloriousthemes --password=**** ci -m "CHANGELOG"`
+* Done
