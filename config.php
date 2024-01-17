@@ -16,6 +16,7 @@ define( 'PLUGIN_NAME_NAME', 'PLUGIN_NAME' );
 /** CUSTOM VALUES */
 define( 'GLORIOUSTHEMES_SUFFIX_URL', 'https://gloriousthemes.com' );
 define( 'GLORIOUSMOTIVE_SUFFIX_URL', 'https://gloriousmotive.com' );
+define( 'PLUGIN_NAME_DOCS_URL', 'https://gloriousmotive.com/docs/7432' );
 
 
 define( 'PLUGIN_NAME_THEME_VERSION', wp_get_theme()->get( 'Version' ) ) ;

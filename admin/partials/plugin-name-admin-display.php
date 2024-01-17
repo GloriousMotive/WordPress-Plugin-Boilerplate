@@ -14,7 +14,13 @@
 if( PLUGIN_NAME_NOTIFICATION_ONOFF == 'ON' ){
     //Gets Admin Notification
     require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-notice-display.php';
+  
 }
+
+// CALL SERVICES
+require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-services.php';
+$this->getServices = new Plugin_Name_Services();
+
 
 ?>
 
@@ -63,7 +69,7 @@ if( PLUGIN_NAME_NOTIFICATION_ONOFF == 'ON' ){
             <a href="#themes">Themes</a>
             <a href="#plugins">Plugins</a>
             <a href="#services">Services</a>
-            <a href="#support">Support</a>
+            <a href="#support">Support & Docs</a>
             <a href="#license">License</a>
             <!-- Add more tabs as needed -->
     
@@ -106,9 +112,35 @@ if( PLUGIN_NAME_NOTIFICATION_ONOFF == 'ON' ){
                 </div>
 
                 <div id="support" class="tab-content">
-                    <!-- Content for Tab 1 -->
-                    <h3><span>Support</span></h3>
-                    <p>Content of Tab 1</p>
+                    <!-- Content for Tab 3 -->
+                    <?php echo $services = $this->getServices->display_plugin_name_services(); ?>
+                    <div class="service-debug-container" style="margin-top:20px;">
+                        <div class="gm-title">
+                            <div class="gm-title-style">
+                                <h3 class="gm-text6">
+                                    <span>DEBUG DATA</span>
+                                </h3>
+                            </div>
+                        </div>
+
+
+                        <div class="heading__description" part="heading-description">
+                            <slot name="description">
+                                Copy this code and then paste it on your support ticket when the support team asks for Debug Data
+                            </slot>
+                            <div id="myDiv" class="cards cards-container">
+                                <p>### DEBUG DATA STARTS ###.</p>
+                                <?php
+                                // CALL SERVICES
+                                require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-status.php';
+                                ?>
+                                <p>### DEBUG DATA ENDS ###.</p>
+                            </div>
+
+                            <button class="cards-button" onclick="copyToClipboard()">Copy Debug Data</button>
+                            <div id="successMessage"></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="license" class="tab-content">

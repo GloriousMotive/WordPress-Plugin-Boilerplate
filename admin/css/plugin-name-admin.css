@@ -29,9 +29,15 @@ li#toplevel_page_plugin_name a.menu-top {
 }
 
 .tabactive {
-   /* Add your active tab styling here */
+   color: var(--gm-color-brand-primary) !important;
 }
 
+.idss a {
+   padding: 5px 0px;
+   color: #333;
+   font-weight: 600;
+   font-size: 15px;
+}
 
 /** TABS */
 .plugin-name-settings .tabs {
@@ -52,6 +58,76 @@ li#toplevel_page_plugin_name a.menu-top {
 
 .plugin-name-settings .tab-content.active {
     display: block;
+}
+
+
+/** TITLE */
+.gm-title {
+   display: flex;
+   -webkit-box-align: center;
+   align-items: center;
+   -webkit-box-pack: justify;
+   justify-content: space-between;
+   border-bottom: 1px solid rgb(229, 231, 235);
+   margin-bottom: 2rem !important;
+}
+.gm-title-style {
+   display: flex;
+   -webkit-box-align: center;
+   align-items: center;
+   gap: 1em;
+}
+.gm-text {
+   margin: 0px;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   font-size: 1.1rem;
+   line-height: 1.75rem;
+   font-weight: 600;
+   display: flex;
+   -webkit-box-align: center;
+   align-items: center;
+   gap: 0.5em;
+   color: var(--gm-color-gray-900);
+}
+
+
+
+.service-container {
+   display: flex;
+   justify-content: space-between;
+}
+.cards {
+   background: #fff;
+   padding: 20px;
+   border: 1px solid #eee;
+   border-radius: 5px;
+   width: 500px;
+   cursor: pointer;
+}
+
+.cards button, .cards-button {
+   background: var(--gm-color-brand-primary);
+   border: var(--gm-color-brand-primary);
+   color: var(--gm-color-white);
+   padding: var(--gm-spacing-x-small) var(--gm-spacing-xx-large);
+   border-radius: var(--button-border-radius, var(--gm-input-border-radius-medium));
+   cursor: pointer;
+}
+
+.cards button:hover, .cards button:active {
+   background: var(--gm-color-success-900);
+}
+
+#myDiv {
+   border: 1px solid #ccc;
+   margin: 10px 0;
+}
+
+#successMessage {
+   display: none;
+   color: green;
 }
 
 
@@ -177,12 +253,13 @@ body {
 .gm-content {
     margin-left: auto;
     margin-right: auto;
-    max-width: 768px;
+    max-width: 1200px;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     gap: var(--gm-spacing-large);
 }
+
 
 /* .gm-container {
     margin-left: auto;

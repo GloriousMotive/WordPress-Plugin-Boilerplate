@@ -142,6 +142,7 @@ class Plugin_Name_Admin {
 
 		//$tabsoutput = $this->getAdminTabs->display_plugin_name_admintabs();
 		
+		
 		// Output the admin page HTML here.
 		require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-display.php';
 	}

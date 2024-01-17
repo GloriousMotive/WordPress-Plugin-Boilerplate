@@ -133,3 +133,39 @@ document.addEventListener("DOMContentLoaded", function () {
       window.history.pushState(null, null, tabs[0].getAttribute("href"));
   }
 });
+
+
+
+
+// COPIES THE CODE INSIDE
+function copyToClipboard() {
+  // Get the text content from the div
+  var content = document.getElementById('myDiv').innerText;
+
+  // Create a temporary textarea element to copy the text
+  var tempTextArea = document.createElement('textarea');
+  tempTextArea.value = content;
+
+  // Append the textarea to the document
+  document.body.appendChild(tempTextArea);
+
+  // Select the text in the textarea
+  tempTextArea.select();
+  tempTextArea.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the selected text to the clipboard
+  document.execCommand('copy');
+
+  // Remove the temporary textarea
+  document.body.removeChild(tempTextArea);
+
+  // Display a success message in a separate div
+  var successMessage = document.getElementById('successMessage');
+  successMessage.innerHTML = 'Copied successfully!';
+  successMessage.style.display = 'block';
+
+  // Hide the success message after 5 seconds
+  setTimeout(function () {
+      successMessage.style.display = 'none';
+  }, 5000);
+}
