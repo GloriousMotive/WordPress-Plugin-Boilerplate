@@ -69,7 +69,7 @@ $this->getServices = new Plugin_Name_Services();
             <a href="#themes">Themes</a>
             <a href="#plugins">Plugins</a>
             <a href="#services">Services</a>
-            <a href="#support">Support & Docs</a>
+            <a href="#support">Support & Documentation</a>
             <a href="#license">License</a>
             <!-- Add more tabs as needed -->
     
