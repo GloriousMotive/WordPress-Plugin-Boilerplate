@@ -18,8 +18,13 @@ if( PLUGIN_NAME_NOTIFICATION_ONOFF == 'ON' ){
 }
 
 // CALL SERVICES
-require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-services.php';
-$this->getServices = new Plugin_Name_Services();
+require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-support.php';
+$this->getSupport = new Plugin_Name_Support();
+
+// CALL LICENSE
+require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-license.php';
+$this->getLicense = new Plugin_Name_License();
+
 
 
 ?>
@@ -107,13 +112,16 @@ $this->getServices = new Plugin_Name_Services();
 
                 <div id="services" class="tab-content">
                     <!-- Content for Tab 1 -->
-                    <h3><span>All Services</span></h3>
+                    <h3><span>All Support</span></h3>
                     <p>Content of Tab 1</p>
                 </div>
 
                 <div id="support" class="tab-content">
                     <!-- Content for Tab 3 -->
-                    <?php echo $services = $this->getServices->display_plugin_name_services(); ?>
+                    <?php 
+                    echo $support = $this->getSupport->display_plugin_name_support(); 
+                    echo $this->getSupport->display_plugin_name_support_compare();
+                    ?>
                     <div class="service-debug-container" style="margin-top:20px;">
                         <div class="gm-title">
                             <div class="gm-title-style">
@@ -144,9 +152,18 @@ $this->getServices = new Plugin_Name_Services();
                 </div>
 
                 <div id="license" class="tab-content">
-                    <!-- Content for Tab 1 -->
-                    <h3><span>License Settings</span></h3>
-                    <p>Content of Tab 1</p>
+                    <!-- Content for Tab 3 -->
+                    <?php 
+                    echo $license = $this->getLicense->display_plugin_name_license();
+                    if ( PLUGIN_NAME_LICENSE_ENGINE == 'el' ) {
+                        echo $license = $this->getLicense->display_plugin_name_el_license_form();
+                    } elseif ( PLUGIN_NAME_LICENSE_ENGINE == 'ed') {
+                        echo $license = $this->getLicense->display_plugin_name_ed_license_form();
+                    } else {
+                        //Oops
+                    }
+                     
+                    ?>
                 </div>
                 <!-- Add more content sections as needed -->
             </div>

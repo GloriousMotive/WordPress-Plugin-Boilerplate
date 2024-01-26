@@ -41,6 +41,11 @@ class Plugin_Name_Admin {
 	private $version;
 
 	/**
+	 * The Plugin Notification version check
+	 */
+	private $plugin_name_stored_version;
+
+	/**
 	 * The Admin Tabs .
 	 */
 	//private $getAdminTabs;
@@ -56,6 +61,9 @@ class Plugin_Name_Admin {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+		
+
+		$this->plugin_name_notification_admin();
 
 		//$this->getAdminTabs = new Plugin_Name_AdminTabs();
 
@@ -64,6 +72,15 @@ class Plugin_Name_Admin {
 		
 		// Hook into the plugin action links filter.
 		add_filter( 'plugin_name_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_name_add_settings_link' ) );
+
+		//Which License Engine to activate
+		if ( PLUGIN_NAME_LICENSE_ENGINE == 'el' ) {
+			require_once PLUGIN_NAME_DIR . "/lib/tala-el/plugin-name-el.php"; 
+		} elseif ( PLUGIN_NAME_LICENSE_ENGINE == 'ed') {
+			require_once PLUGIN_NAME_DIR . "/lib/tala-ed/plugin-name-ed.php"; 
+		} else {
+			//Oops
+		}
 	}
 
 	/**
@@ -174,5 +191,27 @@ class Plugin_Name_Admin {
 
         return $links;
     }
+
+
+
+	/** Conditional Logic for Notification Banner
+	 * @since 1.0.0
+	 */
+	// Check and update the plugin version
+	function plugin_name_notification_admin() {
+		$plugin_name_current_version = $this->version; // Replace with your current plugin version
+		$plugin_name_stored_version = get_option('plugin_name_version', '');
+
+		if ($plugin_name_current_version !== $plugin_name_stored_version) {
+			// Update the stored version and display the banner
+			update_option('plugin_name_version', $plugin_name_current_version);
+		} else {
+			// Plugin version has not changed, do not display the banner
+			//remove_action('admin_notices', 'display_notification_banner');
+			update_option('plugin_name_version', $plugin_name_current_version);
+		}
+	}
+
+
 
 }

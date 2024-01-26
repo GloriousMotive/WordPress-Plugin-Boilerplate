@@ -2,6 +2,26 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+ /** MAINS */
+p {
+   font-size: 14px;
+   line-height: 19.5px;
+}
+
+/** PADDING */
+.padding20-lr {
+   padding: 0px 20px;
+}
+.margin20-lr {
+   margin: 0px 20px;
+}
+.padding20-up {
+   padding: 20px 0px;
+}
+.margin20-up {
+   margin: 20px 0px;
+}
+
 
 /** MENU */
 li#toplevel_page_plugin_name a.menu-top {
@@ -27,17 +47,17 @@ li#toplevel_page_plugin_name a.menu-top {
    display: block;
 
 }
-
 .tabactive {
    color: var(--gm-color-brand-primary) !important;
 }
-
 .idss a {
    padding: 5px 0px;
    color: #333;
    font-weight: 600;
    font-size: 15px;
+   text-decoration: none;
 }
+
 
 /** TABS */
 .plugin-name-settings .tabs {
@@ -91,13 +111,12 @@ li#toplevel_page_plugin_name a.menu-top {
    gap: 0.5em;
    color: var(--gm-color-gray-900);
 }
-
-
-
 .service-container {
    display: flex;
    justify-content: space-between;
 }
+
+/** CARDS */
 .cards {
    background: #fff;
    padding: 20px;
@@ -107,17 +126,24 @@ li#toplevel_page_plugin_name a.menu-top {
    cursor: pointer;
 }
 
-.cards button, .cards-button {
+.cards button, .cards-button,
+.el-license-active-btn input#submit {
+   margin: 15px 0px;
    background: var(--gm-color-brand-primary);
    border: var(--gm-color-brand-primary);
    color: var(--gm-color-white);
    padding: var(--gm-spacing-x-small) var(--gm-spacing-xx-large);
    border-radius: var(--button-border-radius, var(--gm-input-border-radius-medium));
    cursor: pointer;
+   text-decoration: none;
 }
 
-.cards button:hover, .cards button:active {
+.cards button:hover, .cards button:active,
+.cards-button:hover, .cards-button:active,
+.el-license-active-btn input#submit:hover, .el-license-active-btn input#submit:active {
    background: var(--gm-color-success-900);
+   color: var(--gm-color-white);
+   text-decoration: none;
 }
 
 #myDiv {
@@ -129,6 +155,55 @@ li#toplevel_page_plugin_name a.menu-top {
    display: none;
    color: green;
 }
+
+/** NOTIFCATIONS **/
+#dismiss-banner {
+   cursor: pointer;
+   color: #333; /* Adjust the color as needed */
+   text-decoration: underline;
+}
+
+
+/** UL LIST LI **/
+.support_ul {
+   list-style: auto;
+   padding: 10px
+}
+.support_ul > li {
+   margin: 15px 0px;
+}
+
+
+
+
+/** FORMS **/
+.el-license-container input {
+   border-top-right-radius: 0.375rem;
+   border-bottom-right-radius: 0.375rem 
+}
+
+.el-license-container input {
+    display: block;
+    flex: 1 1 0%;
+    border-width: 0;
+    background-color: initial;
+    padding: 0.35rem;
+    color: rgb(17 24 39/var(1));
+    padding-top: 0.375rem;
+    margin: 0.51rem 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /** REST FOR ADMIN */
@@ -685,379 +760,23 @@ gm-checkout [hidden] {
    overflow: hidden !important
 }
 
-.gloriouswork-theme-dark gm-checkout {
-   color: var(--gm-color-white)
-}
-
-.gloriouswork-theme-dark {
-   --gm-color-gray-50: var(--gm-color-neutral-50);
-   --gm-color-gray-100: var(--gm-color-neutral-100);
-   --gm-color-gray-200: var(--gm-color-neutral-200);
-   --gm-color-gray-300: var(--gm-color-neutral-300);
-   --gm-color-gray-400: var(--gm-color-neutral-400);
-   --gm-color-gray-500: var(--gm-color-neutral-500);
-   --gm-color-gray-600: var(--gm-color-neutral-600);
-   --gm-color-gray-700: var(--gm-color-neutral-700);
-   --gm-color-gray-800: var(--gm-color-neutral-800);
-   --gm-color-gray-900: var(--gm-color-neutral-900);
-   --gm-color-gray-950: var(--gm-color-neutral-950);
-   --gm-input-label-color: var(--gm-color-gray-200);
-   --gm-input-background-color: var(--gm-color-gray-900);
-   --gm-input-background-color-hover: var(--gm-color-gray-900);
-   --gm-input-background-color-focus: var(--gm-color-gray-900);
-   --gm-input-background-color-disabled: var(--gm-color-gray-800);
-   --gm-input-border-color-hover: var(--gm-color-gray-600);
-   --gm-input-border-color-focus: var(--gm-color-gray-500);
-   --gm-input-border-color-disabled: var(--gm-color-gray-200);
-   --gm-input-border-color-invalid: var(--gm-color-danger-500);
-   --gm-input-font-family: var(--gm-font-sans);
-   --gm-input-font-weight: var(--gm-font-weight-normal);
-   --gm-input-font-size-small: var(--gm-font-size-small);
-   --gm-input-font-size-medium: var(--gm-font-size-medium);
-   --gm-input-font-size-large: var(--gm-font-size-large);
-   --gm-input-letter-spacing: var(--gm-letter-spacing-normal);
-   --gm-input-border-color: var(--gm-color-gray-700);
-   --gm-input-border-color-hover: var(--gm-color-gray-600);
-   --gm-input-border-color-focus: var(--gm-color-primary-500);
-   --gm-input-border-color-disabled: var(--gm-color-gray-700);
-   --gm-input-border-color-invalid: var(--gm-color-danger-500);
-   --gm-input-border: solid var(--gm-input-border-width) var(--gm-input-border-color);
-   --gm-input-color: var(--gm-color-gray-200);
-   --gm-input-color-hover: var(--gm-color-gray-200);
-   --gm-input-color-focus: var(--gm-color-gray-200);
-   --gm-input-color-disabled: var(--gm-color-gray-100);
-   --gm-input-color-invalid: var(--gm-color-danger-600);
-   --gm-input-icon-color: var(--gm-color-gray-500);
-   --gm-input-icon-color-hover: var(--gm-color-gray-300);
-   --gm-input-icon-color-focus: var(--gm-color-gray-300);
-   --gm-input-placeholder-color: var(--gm-color-gray-500);
-   --gm-input-placeholder-color-disabled: var(--gm-color-gray-400);
-   --gm-input-help-text-color: var(--gm-color-gray-400);
-   --gm-list-row-background-color: var(--gm-color-gray-950);
-   --gm-badge-notice-background-color: var(--gm-color-gray-950);
-   --gm-divider-text-background-color: var(--gm-color-gray-900);
-   --gm-badge-notice-text-color: var(--gm-color-gray-300);
-   --gm-list-row-color: var(--gm-color-gray-300);
-   --gm-empty-color: var(--gm-color-gray-300);
-   --gm-empty-icon-color: var(--gm-color-gray-300);
-   --gm-tab-active-background: var(--gm-color-gray-800);
-   --gm-menu-item-color: var(--gm-color-gray-300);
-   --gm-line-item-title-color: var(--gm-color-gray-300);
-   --gm-order-summary-color: var(--gm-color-gray-300);
-   --gm-order-collapse-link-icon-color: var(--gm-color-gray-300);
-   --gm-input-control-background-color: var(--gm-color-gray-900);
-   --gm-block-ui-background-color: var(--gm-color-gray-800);
-   --gm-select-background-color: var(--gm-color-gray-900);
-   --gm-input-background-color: var(--gm-color-gray-900);
-   --gm-button-default-background-color: var(--gm-color-gray-900);
-   --gm-button-default-hover-background-color: var(--gm-color-gray-900);
-   --gm-button-default-active-background-color: var(--gm-button-default-hover-background-color);
-   --gm-button-default-focus-background-color: var(--gm-button-default-hover-background-color);
-   --gm-button-default-active-border-color: var(--gm-color-gray-600);
-   --gm-button-default-focus-border-color: var(--gm-color-gray-600);
-   --gm-toggle-background-color: var(--gm-color-gray-950);
-   --gm-card-background-color: var(--gm-color-gray-950);
-   --gm-table-cell-background-color: var(--gm-color-gray-800);
-   --gm-alert-background-color: var(--gm-color-gray-800);
-   --gm-alert-title-color: var(--gm-color-white);
-   --gm-input-control-color: var(--gm-color-gray-300);
-   --gm-alert-primary-color: var(--gm-color-gray-300);
-   --gm-alert-info-color: var(--gm-color-gray-300);
-   --gm-alert-danger-color: var(--gm-color-gray-300);
-   --gm-alert-warning-color: var(--gm-color-gray-300);
-   --gm-alert-success-color: var(--gm-color-gray-300);
-   --gm-alert-primary-title-color: var(--gm-color-gray-300);
-   --gm-alert-info-title-color: var(--gm-color-gray-300);
-   --gm-alert-danger-title-color: var(--gm-color-gray-300);
-   --gm-alert-warning-title-color: var(--gm-color-gray-300);
-   --gm-alert-success-title-color: var(--gm-color-gray-300);
-   --gm-breadcrumb-item-label-color: var(--gm-color-gray-300);
-   --gm-breadcrumb-item-label-active-color: var(--gm-color-gray-200);
-   --gm-button-default-color: var(--gm-color-gray-300);
-   --gm-breadcrumb-color: var(--gm-color-gray-300);
-   --gm-stacked-list-row-text-color: var(--gm-color-gray-300);
-   --gm-order-confirmation-color: var(--gm-color-gray-300);
-   --gm-card-border-color: var(--gm-color-gray-600);
-   --gm-select-border-color: var(--gm-color-gray-600);
-   --gm-button-default-border-color: var(--gm-color-gray-600);
-   --gm-stacked-list-border-color: var(--gm-color-gray-600);
-   --gm-divider-border-top-color: var(--gm-color-gray-600);
-   --gm-input-border-color: var(--gm-color-gray-600);
-   --gm-table-border-bottom-color: var(--gm-color-gray-600);
-   --gm-toggle-border-color: var(--gm-color-gray-600);
-   --gm-toggle-shady-color: var(--gm-color-gray-800);
-   --gm-table-row-border-bottom-color: var(--gm-color-gray-600);
-   --gm-badge-notice-border-color: var(--gm-color-gray-600);
-   --gm-stacked-list-row-hover-color: var(--gm-color-gray-800);
-   --gm-skeleton-color: var(--gm-color-gray-800);
-   --gm-skeleton-sheen-color: var(--gm-color-gray-700);
-   --gm-switch-background-thumb-color: var(--gm-color-gray-900);
-   --gm-switch-background-thumb-hover-color: var(--gm-color-gray-900);
-   --gm-swith-label-color: var(--gm-color-gray-300);
-   --gm-switch-description-color: var(--gm-color-gray-400);
-   --gm-switch-control-background-color: var(--gm-color-gray-700);
-   --gm-switch-border-color: var(--gm-color-gray-700);
-   --gm-switch-control-hover-background-color: var(--gm-color-gray-600);
-   --gm-switch-control-hover-border-color: var(--gm-color-gray-600);
-   --gm-switch-checked-control-background-color: var(--gm-color-primary-600);
-   --gm-switch-checked-control-border-color: var(--gm-color-primary-600);
-   --gm-overlay-background-color: #d1d5db22;
-   --gm-panel-background-color: var(--gm-color-gray-900);
-   --gm-panel-border-color: var(--gm-color-gray-800);
-   --gm-tooltip-background-color: var(--gm-color-gray-200);
-   --gm-tooltip-color: var(--gm-color-black);
-   --gm-choice-background-color: var(--gm-color-gray-900);
-   --gm-choice-border: solid var(--gm-input-border-width) var(--gm-input-border-color);
-   --gm-stripe-color-logo: 'dark';
-   --gm-stripe-color-tag: 'dark';
-   --gm-stripe-color-logo-tab-selected: 'dark';
-   --gm-stripe-color-tab-selected: 'dark';
-   --gm-drawer-border: solid var(--gm-input-border-width) var(--gm-input-border-color);
-   --gm-cart-counter-background: var(--gm-color-gray-50);
-   --gm-cart-counter-color: var(--gm-color-gray-950);
-   --gm-selected-price-color: var(--gm-color-gray-50)
-}
-
-.gloriouswork-theme-dark gm-table {
-   color: var(--gm-color-gray-300)
-}
-
-.gloriouswork-theme-dark gm-avatar::part(base) {
-   background-color: var(--gm-color-gray-700);
-   color: var(--gm-color-gray-300)
-}
-
-.gloriouswork-theme-dark gm-button[type='default']::part(base) {
-   background-color: var(--gm-color-gray-900);
-   border-color: var(--gm-color-gray-700);
-   color: var(--gm-color-gray-400)
-}
-
-.gloriouswork-theme-dark gm-button[type='default']:not([disabled])::part(base):hover {
-   background-color: var(--gm-color-primary-950);
-   border-color: var(--gm-color-primary-800);
-   color: var(--gm-color-primary-500)
-}
-
-.gloriouswork-theme-dark gm-button[type='default']:not([disabled])::part(base):focus {
-   background-color: var(--gm-color-primary-950);
-   border-color: var(--gm-color-primary-800);
-   color: var(--gm-color-primary-500);
-   box-shadow: 0 0 0 var(--gm-focus-ring-width) hsla(var(--gm-color-primary-hue), var(--gm-color-primary-saturation), 50%, var(--gm-focus-ring-alpha))
-}
-
-.gloriouswork-theme-dark gm-button[type='default']:not([disabled])::part(base):active {
-   background-color: var(--gm-color-primary-900);
-   border-color: var(--gm-color-primary-700);
-   color: var(--gm-color-primary-300)
-}
-
-.gloriouswork-theme-dark gm-button[type='text']::part(base) {
-   color: var(--gm-color-gray-400)
-}
-
-.gloriouswork-theme-dark gm-button[type='text']:not([disabled])::part(base):active,.gloriouswork-theme-dark gm-button[type='text']:not([disabled])::part(base):hover,.gloriouswork-theme-dark gm-button[type='text']:not([disabled])::part(base):focus {
-   color: var(--gm-color-gray-300)
-}
-
-.gloriouswork-theme-dark gm-card::part(base) {
-   background-color: var(--gm-color-gray-900);
-   --border-color: var(--gm-color-gray-800)
-}
-
-.gloriouswork-theme-dark gm-color-picker::part(format-button) {
-   background-color: var(--gm-color-gray-900);
-   border-color: var(--gm-color-gray-700);
-   color: var(--gm-color-gray-400)
-}
-
-.gloriouswork-theme-dark gm-color-picker::part(format-button):hover {
-   background-color: var(--gm-color-primary-950);
-   border-color: var(--gm-color-primary-800);
-   color: var(--gm-color-primary-500)
-}
-
-.gloriouswork-theme-dark gm-color-picker::part(format-button):focus {
-   background-color: var(--gm-color-primary-950);
-   border-color: var(--gm-color-primary-800);
-   color: var(--gm-color-primary-500);
-   box-shadow: 0 0 0 var(--gm-focus-ring-width) hsla(var(--gm-color-primary-hue), var(--gm-color-primary-saturation), 50%, var(--gm-focus-ring-alpha))
-}
-
-.gloriouswork-theme-dark gm-color-picker::part(format-button):active {
-   background-color: var(--gm-color-primary-900);
-   border-color: var(--gm-color-primary-700);
-   color: var(--gm-color-primary-300)
-}
-
-.gloriouswork-theme-dark gm-color-picker::part(panel) {
-   background-color: var(--gm-color-gray-900);
-   border-color: var(--gm-color-gray-800)
-}
-
-.gloriouswork-theme-dark gm-color-picker::part(slider-handle) {
-   background-color: var(--gm-color-gray-800);
-   box-shadow: 0 0 0 1px var(--gm-color-gray-600)
-}
-
-.gloriouswork-theme-dark gm-color-picker::part(slider-handle):focus {
-   box-shadow: 0 0 0 1px var(--gm-color-primary-500), 0 0 0 var(--gm-focus-ring-width) var(--gm-focus-ring-color-primary)
-}
-
-.gloriouswork-theme-dark gm-color-picker::part(grid-handle) {
-   border-color: var(--gm-color-gray-900)
-}
-
-.gloriouswork-theme-dark gm-color-picker::part(preview),.gloriouswork-theme-dark gm-color-picker::part(opacity-slider),.gloriouswork-theme-dark gm-color-picker::part(trigger) {
-   background-image: linear-gradient(45deg, #333 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #333 75%), linear-gradient(45deg, transparent 75%, #333 75%), linear-gradient(45deg, #333 25%, transparent 25%)
-}
-
-.gloriouswork-theme-dark gm-color-picker::part(swatches) {
-   border-top-color: var(--gm-color-gray-800)
-}
-
-.gloriouswork-theme-dark gm-details::part(base) {
-   border-color: var(--gm-color-gray-800)
-}
-
-.gloriouswork-theme-dark gm-icon-button::part(base) {
-   color: var(--gm-color-gray-400)
-}
-
-.gloriouswork-theme-dark gm-icon-button:not([disabled])::part(base):hover,.gloriouswork-theme-dark gm-icon-button:not([disabled])::part(base):focus {
-   color: var(--gm-color-primary-500)
-}
-
-.gloriouswork-theme-dark gm-icon-button:not([disabled])::part(base):active {
-   color: var(--gm-color-primary-500)
-}
-
-.gloriouswork-theme-dark gm-image-comparer::part(divider),.gloriouswork-theme-dark gm-image-comparer::part(handle) {
-   background-color: var(--gm-color-gray-900);
-   color: var(--gm-color-gray-400)
-}
-
-.gloriouswork-theme-dark gm-menu-item::part(base) {
-   color: var(--gm-color-gray-200)
-}
-
-.gloriouswork-theme-dark gm-menu-item::part(base):focus {
-   background-color: var(--gm-color-primary-600);
-   color: var(--gm-color-white)
-}
-
-.gloriouswork-theme-dark gm-menu-item[disabled]::part(base) {
-   color: var(--gm-color-gray-600)
-}
-
-.gloriouswork-theme-dark gm-menu-label::part(base) {
-   color: var(--gm-color-gray-600)
-}
-
-.gloriouswork-theme-dark gm-progress-bar::part(base) {
-   background-color: var(--gm-color-gray-800)
-}
-
-.gloriouswork-theme-dark gm-progress-bar::part(indicator) {
-   color: var(--gm-color-gray-900)
-}
-
-.gloriouswork-theme-dark gm-progress-ring::part(base) {
-   --track-color: var(--gm-color-gray-800)
-}
-
-.gloriouswork-theme-dark gm-range {
-   --track-color: var(--gm-color-gray-800)
-}
-
-.gloriouswork-theme-dark gm-rating {
-   --symbol-color: var(--gm-color-gray-700)
-}
-
-.gloriouswork-theme-dark gm-select::part(tag) {
-   background-color: var(--gm-color-info-800);
-   border-color: var(--gm-color-info-700);
-   color: var(--gm-color-info-300)
-}
-
-.gloriouswork-theme-dark gm-spinner {
-   --track-color: #f9fafb20
-}
-
-.gloriouswork-theme-dark gm-secure-notice::part(icon) {
-   color: var(--gm-color-gray-700)
-}
-
-.gloriouswork-theme-dark gm-secure-notice::part(text) {
-   color: var(--gm-color-gray-400)
-}
-
-.gloriouswork-theme-dark gm-tab-group::part(tabs) {
-   --tabs-border-color: var(--gm-color-gray-800)
-}
-
-.gloriouswork-theme-dark gm-tab::part(base) {
-   color: var(--gm-color-gray-400)
-}
-
-.gloriouswork-theme-dark gm-tab:not([disabled])::part(base):hover,.gloriouswork-theme-dark gm-tab[active]::part(base) {
-   color: var(--gm-color-primary-white)
-}
-
-.gloriouswork-theme-dark gm-tag[type='primary']::part(base) {
-   background-color: var(--gm-color-primary-950);
-   border-color: var(--gm-color-primary-900);
-   color: var(--gm-color-primary-300)
-}
-
-.gloriouswork-theme-dark gm-tag[type='success']::part(base) {
-   background-color: var(--gm-color-success-950);
-   border-color: var(--gm-color-success-900);
-   color: var(--gm-color-success-300)
-}
-
-.gloriouswork-theme-dark gm-tag[type='info']::part(base) {
-   background-color: var(--gm-color-info-800);
-   border-color: var(--gm-color-info-700);
-   color: var(--gm-color-info-300)
-}
-
-.gloriouswork-theme-dark gm-tag[type='warning']::part(base) {
-   background-color: var(--gm-color-warning-950);
-   border-color: var(--gm-color-warning-900);
-   color: var(--gm-color-warning-300)
-}
-
-.gloriouswork-theme-dark gm-tag[type='danger']::part(base) {
-   background-color: var(--gm-color-danger-950);
-   border-color: var(--gm-color-danger-900);
-   color: var(--gm-color-danger-300)
-}
-
-.gloriouswork-theme-dark gm-form-section::part(title) {
-   color: var(--gm-color-white)
-}
-
-.gloriouswork-theme-dark gm-form-section::part(description) {
-   color: var(--gm-color-gray-400)
-}
-
-.gloriouswork-theme-dark gm-heading,.gloriouswork-theme-dark gm-form-row,.gloriouswork-theme-dark gm-form-control,.gloriouswork-theme-dark gm-menu-label,.gloriouswork-theme-dark gm-customer-details,.gloriouswork-theme-dark .menu-item,.gloriouswork-theme-dark gm-column,.gloriouswork-theme-dark paypal-buttons,.gloriouswork-theme-dark gm-stacked-list,.gloriouswork-theme-dark gm-stripe-element,.gloriouswork-theme-dark gm-stripe-payment-element,.gloriouswork-theme-dark gm-stripe-payment-request,.gloriouswork-theme-dark gm-text,.gloriouswork-theme-dark gm-card,.gloriouswork-theme-dark gm-tooltip,.gloriouswork-theme-dark gm-tag-panel,.gloriouswork-theme-dark gm-toggles,.gloriouswork-theme-dark gm-dashboard-module,.gloriouswork-theme-dark entry-title,.gloriouswork-theme-dark gm-toggle,.gloriouswork-theme-dark gm-tab-group,.gloriouswork-theme-dark gm-login-form {
-   color: var(--gm-color-gray-300)
-}
 .gm-banner {
    background-color: var(--gm-color-brand-primary);
-   color: white;
+   color: var(--gm-color-white);
+   display: flex;
+   justify-content: space-between;
+}
+.gm-banner-flex {
    display: flex;
    align-items: center;
    justify-content: center;
 }
-.gm-banner > p {
+.gm-banner-flex > p {
    font-size: 14px;
    line-height: 1;
    margin: var(--gm-spacing-small);
 }
-.gm-banner > p a {
+.gm-banner-flex > p a {
    color: inherit;
    font-weight: 600;
    margin-left: 10px;
@@ -1068,8 +787,26 @@ gm-checkout [hidden] {
    border-bottom: 1px solid;
    padding-bottom: 2px;
 }
+.dismiss-btn-div {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.dismiss-btn {
+   background: var(--gm-color-white);
+   padding: 2px 8px;
+   border: 1px solid var(--gm-color-gray-200);
+   border-radius: 4px;
+   text-decoration: none !important;
+   display: flex;
+   
+}
+.dismiss-btn:hover {
+   background: var(--gm-color-danger-500);
+   color: var(--gm-color-white) !important;
+}
 .icon, svg {
-   color: #fff;
+   color: var(--gm-color-white);
    stroke-width: var(--gm-icon-stroke-width, 2px);
 }
 
