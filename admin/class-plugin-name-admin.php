@@ -77,7 +77,7 @@ class Plugin_Name_Admin {
 		if ( PLUGIN_NAME_LICENSE_ENGINE == 'el' ) {
 			require_once PLUGIN_NAME_DIR . "/lib/tala-el/plugin-name-el.php"; 
 		} elseif ( PLUGIN_NAME_LICENSE_ENGINE == 'ed') {
-			require_once PLUGIN_NAME_DIR . "/lib/tala-ed/plugin-name-ed.php"; 
+			require_once PLUGIN_NAME_DIR . "/lib/tala-ed/plugin-name-edd.php"; 
 		} else {
 			//Oops
 		}

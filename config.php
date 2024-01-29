@@ -29,7 +29,13 @@ define( 'PLUGIN_NAME_NOTIFICATION_LINK' , 'https://gloriousthemes.com' );
 define( 'PLUGIN_NAME_NOTIFICATION_LINK_TEXT' , 'Visit website' );
 
 
-/** LICENSE */
-define( 'PLUGIN_NAME_LICENSE_ENGINE' ,'el' ); //'ed
+/** LICENSE - EL */
+define( 'PLUGIN_NAME_LICENSE_ENGINE' ,'ed' ); //'ed The Updater Engine EL or ED
 define( 'PLUGIN_NAME_EL_KEY', '199C773E3189A3AC'); // Key
 define( 'PLUGIN_NAME_EL_PID', '4'); //Product ID
+
+/** LICENSE - ED */
+define( 'PLUGIN_NAME_EDD_STORE_URL', 'http://gloriousmotive.com' ); // this is the URL our updater / license checker
+define( 'PLUGIN_NAME_EDD_ITEM_ID', 1372 ); //DOWNLOAD ID of the product for Updater/Licenser //License Format 652d1effc4cbc21f35733f993bc2084a
+define( 'PLUGIN_NAME_EDD_ITEM_NAME', 'Test Download' ); //Test Download // the name of the product
+define( 'PLUGIN_NAME_EDD_PLUGIN_LICENSE_PAGE', 'plugin-name#license' ); // the name of the settings page

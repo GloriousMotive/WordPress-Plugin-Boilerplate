@@ -42,10 +42,18 @@ if (! class_exists('Plugin_Name_License')) {
 		 */
 		public function __construct(){
 
-               require_once PLUGIN_NAME_DIR . "/lib/tala-el/plugin-name-el.php";
-               $this->getLicenseELForm = new Plugin_Name_EL();
+               
+               if ( PLUGIN_NAME_LICENSE_ENGINE == 'el' ) {
+                    require_once PLUGIN_NAME_DIR . "/lib/tala-el/plugin-name-el.php";
+                    $this->getLicenseELForm = new Plugin_Name_EL();
+                } elseif ( PLUGIN_NAME_LICENSE_ENGINE == 'ed') {
+                    require_once PLUGIN_NAME_DIR . "/lib/tala-ed/plugin-name-edd.php";
+
+                } 
+               
                //$activated_license = $this->getLicenseELForm->activated();
                //$deactivated_license = $this->getLicenseELForm->license_form();
+               //update_option("Plugin_Name_EL_lic_Key",""); //Empties the License
 
                
         }
@@ -67,6 +75,7 @@ if (! class_exists('Plugin_Name_License')) {
         public function display_plugin_name_el_license_form() {  
           //Gets the License Value from DB and Checks if not Empty
           $license_key=get_option("Plugin_Name_EL_lic_Key",""); 
+          
           if( !empty ($license_key)) {
                //Display the Activated Status
                return $activated_license = $this->getLicenseELForm->activated();
@@ -79,7 +88,7 @@ if (! class_exists('Plugin_Name_License')) {
 
 
         public function display_plugin_name_ed_license_form() {
-
+          plugin_name_edd_license_page();
         }
 
      }
