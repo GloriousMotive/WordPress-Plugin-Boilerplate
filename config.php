@@ -30,7 +30,7 @@ define( 'PLUGIN_NAME_NOTIFICATION_LINK_TEXT' , 'Visit website' );
 
 
 /** LICENSE - EL */
-define( 'PLUGIN_NAME_LICENSE_ENGINE' ,'ed' ); //'ed The Updater Engine EL or ED
+define( 'PLUGIN_NAME_LICENSE_ENGINE' ,'wp' ); //'ed The Updater Engine EL, ED or WP, WP is Free
 define( 'PLUGIN_NAME_EL_KEY', '199C773E3189A3AC'); // Key
 define( 'PLUGIN_NAME_EL_PID', '4'); //Product ID
 

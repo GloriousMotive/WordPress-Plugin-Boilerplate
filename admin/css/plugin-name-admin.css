@@ -198,6 +198,30 @@ li#toplevel_page_plugin_name a.menu-top {
 
 
 
+/* HORIZONTAL TABS */
+.glorious-ht-plugin-name-tab-content {
+   display: none;
+}
+
+.glorious-ht-plugin-name-active-tab {
+   display: block;
+}
+
+.glorious-ht-plugin-name-tabs {
+   display: flex;
+   cursor: pointer;
+}
+
+.glorious-ht-plugin-name-tab {
+   padding: 10px;
+   margin: 5px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+}
+
+
+
+
 
 
 

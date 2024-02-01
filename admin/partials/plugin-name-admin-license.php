@@ -48,8 +48,11 @@ if (! class_exists('Plugin_Name_License')) {
                     $this->getLicenseELForm = new Plugin_Name_EL();
                 } elseif ( PLUGIN_NAME_LICENSE_ENGINE == 'ed') {
                     require_once PLUGIN_NAME_DIR . "/lib/tala-ed/plugin-name-edd.php";
-
-                } 
+                }  elseif ( PLUGIN_NAME_LICENSE_ENGINE == 'wp') {
+                    require_once PLUGIN_NAME_DIR . "/lib/tala-wp/plugin-name-wp.php";
+                } else {
+                    //require_once PLUGIN_NAME_DIR . "/lib/tala-wp/plugin-name-wp.php";
+                }
                
                //$activated_license = $this->getLicenseELForm->activated();
                //$deactivated_license = $this->getLicenseELForm->license_form();
@@ -89,6 +92,11 @@ if (! class_exists('Plugin_Name_License')) {
 
         public function display_plugin_name_ed_license_form() {
           plugin_name_edd_license_page();
+        }
+
+
+        public function display_plugin_name_wp_license() {
+          echo plugin_name_tala_wp_display();
         }
 
      }

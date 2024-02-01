@@ -25,6 +25,10 @@ $this->getSupport = new Plugin_Name_Support();
 require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-license.php';
 $this->getLicense = new Plugin_Name_License();
 
+// SHOW RECOMMENDED PRODUCTS
+require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-recommended.php';
+$this->getRecommended = new Plugin_Name_Recommeneded();
+
 
 
 ?>
@@ -73,7 +77,7 @@ $this->getLicense = new Plugin_Name_License();
             <a href="#settings">Settings</a>
             <a href="#themes">Themes</a>
             <a href="#plugins">Plugins</a>
-            <a href="#services">Services</a>
+            <a href="#recommended">Recommended Products</a>
             <a href="#support">Support & Documentation</a>
             <a href="#license">License</a>
             <!-- Add more tabs as needed -->
@@ -110,14 +114,15 @@ $this->getLicense = new Plugin_Name_License();
                     <p>Content of Tab 1</p>
                 </div>
 
-                <div id="services" class="tab-content">
-                    <!-- Content for Tab 1 -->
-                    <h3><span>All Support</span></h3>
-                    <p>Content of Tab 1</p>
+                <div id="recommended" class="tab-content">
+                    <!-- Content for Tab recommended -->
+                    <?php 
+                    echo $recommended = $this->getRecommended->plugin_name_display_recommeneded();
+                    ?>
                 </div>
 
                 <div id="support" class="tab-content">
-                    <!-- Content for Tab 3 -->
+                    <!-- Content for Tab support -->
                     <?php 
                     echo $support = $this->getSupport->display_plugin_name_support(); 
                     echo $this->getSupport->display_plugin_name_support_compare();
@@ -152,13 +157,15 @@ $this->getLicense = new Plugin_Name_License();
                 </div>
 
                 <div id="license" class="tab-content">
-                    <!-- Content for Tab 3 -->
+                    <!-- Content for Tab license -->
                     <?php 
                     echo $license = $this->getLicense->display_plugin_name_license();
                     if ( PLUGIN_NAME_LICENSE_ENGINE == 'el' ) {
                         echo $license = $this->getLicense->display_plugin_name_el_license_form();
                     } elseif ( PLUGIN_NAME_LICENSE_ENGINE == 'ed') {
                         echo $license = $this->getLicense->display_plugin_name_ed_license_form();
+                    } elseif ( PLUGIN_NAME_LICENSE_ENGINE == 'wp') {
+                        echo $license = $this->getLicense->display_plugin_name_wp_license();
                     } else {
                         //Oops
                     }
