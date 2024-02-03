@@ -17,7 +17,7 @@ function plugin_name_tala_wp_display() {
             </li>
         </ul>
         <div>
-            <a class="cards-button" href="https://gloriousthemes.com//" target="_black">What\'s in Pro Version?</a>
+            <a class="cards-button" href="https://gloriousthemes.com/" target="_black">What\'s in Pro Version?</a>
         </div>
     </div>';
 }

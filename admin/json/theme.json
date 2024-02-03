@@ -1,0 +1,35 @@
+[
+    {
+        "Title": "Theme X",
+        "description": "This is a sample product description for Product 1.",
+        "image_url": "https://example.com/image1.jpg",
+        "category": "Electronics",
+        "price": 49.99,
+        "sale_price": 39.99,
+        "buy_link": "https://example.com/buy/product1",
+        "sale_link": "https://example.com/sale/product1",
+        "type": "Themes"
+    },
+    {
+        "Title": "Boishali New Gown",
+        "description": "Explore the features of Product 2 with this detailed description.",
+        "image_url": "https://example.com/image2.jpg",
+        "category": "Clothing",
+        "price": 29.99,
+        "sale_price": 24.99,
+        "buy_link": "https://example.com/buy/product2",
+        "sale_link": "https://example.com/sale/product2",
+        "type": "Plugins"
+    },
+    {
+        "Title": "Service WP",
+        "description": "Product 3 is designed for maximum performance and efficiency.",
+        "image_url": "https://example.com/image3.jpg",
+        "category": "Home and Living",
+        "price": 99.99,
+        "sale_price": 79.99,
+        "buy_link": "https://example.com/buy/product3",
+        "sale_link": "https://example.com/sale/product3",
+        "type": "Services"
+    }
+]

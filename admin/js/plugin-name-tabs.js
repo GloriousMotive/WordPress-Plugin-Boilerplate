@@ -169,3 +169,146 @@ function copyToClipboard() {
       successMessage.style.display = 'none';
   }, 5000);
 }
+
+
+
+/**
+ * Horizontal Tabs for Admin Part
+ */
+// function changeTab(index) {
+//   // Hide all tab contents
+//   var tabContents = document.getElementsByClassName('glorious-ht-plugin-name-tab-content');
+//   for (var i = 0; i < tabContents.length; i++) {
+//       tabContents[i].style.display = 'none';
+//   }
+
+//   // Remove 'active-tab' class from all tabs
+//   var tabs = document.getElementsByClassName('glorious-ht-plugin-name-tab');
+//   for (var i = 0; i < tabs.length; i++) {
+//       tabs[i].classList.remove('glorious-ht-plugin-name-active-tab');
+//   }
+
+//   // Show the selected tab content and mark the tab as active
+//   document.getElementById('glorious-ht-plugin-name-tab' + index).style.display = 'block';
+//   tabs[index].classList.add('glorious-ht-plugin-name-active-tab');
+// }
+// // Select the first tab by default
+// changeTab(0);
+
+
+
+
+
+
+//
+// JavaScript function to show/hide tab content from Horizontal Tabs, 
+// Doesn't full data dynamically
+// Function to fetch JSON data from the provided URL
+// Version : 1.0
+        // async function fetchJsonData() {
+        //     try {
+        //         const response = await fetch('http://plugins.local/wp-content/plugins/WordPress-Plugin-Boilerplate/admin/json/theme.json');
+        //         const data = await response.json();
+        //         return data;
+        //     } catch (error) {
+        //         console.error('Error fetching JSON data:', error);
+        //         return [];
+        //     }
+        // }
+
+        // // Initial rendering of all products
+        // fetchJsonData().then(jsonData => renderProducts(jsonData));
+
+        // // Function to filter products based on type
+        // function filterProducts(type) {
+        //     fetchJsonData().then(jsonData => {
+        //         const filteredData = type === 'ALL' ? jsonData : jsonData.filter(product => product.type === type);
+        //         renderProducts(filteredData);
+        //     });
+        // }
+
+        // // Function to render products dynamically
+        // function renderProducts(products) {
+        //     const container = document.getElementById('productContainer');
+        //     container.innerHTML = '';
+
+        //     products.forEach(product => {
+        //         const productCard = document.createElement('div');
+        //         productCard.classList.add('product-card');
+
+        //         // Customize the product card HTML structure based on your needs
+        //         productCard.innerHTML = `
+        //             <h2>${product.Title}</h2>
+        //             <p>${product.description}</p>
+        //             <img src="${product.image_url}" alt="${product.Title}" style="max-width: 100%;">
+        //             <p>Category: ${product.category}</p>
+        //             <p>Price: $${product.price}</p>
+        //             <p>Sale Price: $${product.sale_price}</p>
+        //             <a href="${product.buy_link}" target="_blank">Buy Now</a>
+        //             <a href="${product.sale_link}" target="_blank">Sale Link</a>
+        //         `;
+
+        //         container.appendChild(productCard);
+        //     });
+        // }
+
+
+
+// Function to fetch JSON data from the dynamically defined URL
+// Used for Horixontal tabs in Admin Themes, Plugins and Services
+// Version 2.0
+async function fetchJsonData() {
+  try {
+      const response = await fetch(pluginNameJsonContent); //Gets the JSON URL from PHP Recommended. 
+      const data = await response.json();
+      return data;
+  } catch (error) {
+      console.error('Error fetching JSON data:', error);
+      return [];
+  }
+}
+
+// Initial rendering of all products
+fetchJsonData().then(jsonData => renderProducts(jsonData));
+
+// Function to filter products based on type
+function filterProducts(type) {
+  // Remove the 'active' class from all buttons
+  document.querySelectorAll('.btn').forEach(btn => {
+      btn.classList.remove('active');
+  });
+
+  // Add the 'active' class to the clicked button
+  event.target.classList.add('active');
+
+  fetchJsonData().then(jsonData => {
+      const filteredData = type === 'ALL' ? jsonData : jsonData.filter(product => product.type === type);
+      renderProducts(filteredData);
+  });
+}
+
+// Function to render products dynamically
+function renderProducts(products) {
+  const container = document.getElementById('productContainer');
+  container.innerHTML = '';
+
+  products.forEach(product => {
+      const productCard = document.createElement('div');
+      productCard.classList.add('product-card');
+      productCard.classList.add('cards');
+
+      // Customize the product card HTML structure based on your needs
+      productCard.innerHTML = `
+          <div><h2>${product.Title}</h2>
+          <p>${product.description}</p>
+          <img src="${product.image_url}" alt="${product.Title}" style="max-width: 100%;">
+          <p>Category: ${product.category}</p>
+          <p>Price: $${product.price}</p>
+          <p>Sale Price: $${product.sale_price}</p>
+          <a href="${product.buy_link}" target="_blank">Buy Now</a>
+          <a href="${product.sale_link}" target="_blank">Sale Link</a></div>
+      `;
+
+      container.appendChild(productCard);
+  });
+}

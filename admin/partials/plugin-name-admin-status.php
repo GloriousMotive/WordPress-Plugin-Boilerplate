@@ -170,13 +170,13 @@ function plugin_name_status_get_server_data() {
 			'id'   => 'php_version',
 			'title' => esc_html__( 'PHP version', 'plugin-name-framework' ),
 			'info' => '',
-			'value'  => date( "d-m-Y" ),
+			'value'  => plugin_name_get_php_version_val(),
 		),
 		array(
 			'id'   => 'degub_date',
 			'title' => esc_html__( 'Date', 'plugin-name-framework' ),
 			'info' => '',
-			'value'  => plugin_name_get_php_version_val(),
+			'value'  => date( "d-m-Y" ),
 		),
 		array(
 			'id'   => 'memory_limit',

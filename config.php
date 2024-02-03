@@ -39,3 +39,5 @@ define( 'PLUGIN_NAME_EDD_STORE_URL', 'http://gloriousmotive.com' ); // this is t
 define( 'PLUGIN_NAME_EDD_ITEM_ID', 1372 ); //DOWNLOAD ID of the product for Updater/Licenser //License Format 652d1effc4cbc21f35733f993bc2084a
 define( 'PLUGIN_NAME_EDD_ITEM_NAME', 'Test Download' ); //Test Download // the name of the product
 define( 'PLUGIN_NAME_EDD_PLUGIN_LICENSE_PAGE', 'plugin-name#license' ); // the name of the settings page
+
+//define("PLUGIN_NAME_JSON_CONTENT", "http://plugins.local/wp-content/plugins/WordPress-Plugin-Boilerplate/admin/json/theme.json");
