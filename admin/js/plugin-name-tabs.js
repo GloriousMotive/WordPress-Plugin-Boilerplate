@@ -303,10 +303,13 @@ function renderProducts(products) {
           <p>${product.description}</p>
           <img src="${product.image_url}" alt="${product.Title}" style="max-width: 100%;">
           <p>Category: ${product.category}</p>
-          <p>Price: $${product.price}</p>
-          <p>Sale Price: $${product.sale_price}</p>
-          <a href="${product.buy_link}" target="_blank">Buy Now</a>
-          <a href="${product.sale_link}" target="_blank">Sale Link</a></div>
+          ${product.price !== '' ? `<p>Price: $${product.price}</p>` : ''}
+          ${product.buy_link !== '' ? `<a href="${product.buy_link}" target="_blank">Buy Now</a>` : ''}
+          
+          ${product.sale_price !== '' ? `<p>Sale Price: $${product.sale_price}</p>` : ''}
+          ${product.sale_link !== '' ? `<a class="btn-white" href="${product.sale_link}" target="_blank">Sale Link</a>` : ''}
+      
+          
       `;
 
       container.appendChild(productCard);
