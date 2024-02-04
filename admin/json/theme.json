@@ -1,8 +1,8 @@
 [
     {
         "Title": "Theme X",
-        "description": "This is a sample product description for Product 1.",
-        "image_url": "https://example.com/image1.jpg",
+        "description": "This is a sample product description for Product Theme made by GloriousThemes.",
+        "image_url": "backup.png",
         "category": "Electronics",
         "price": 49.99,
         "sale_price": 39.99,
@@ -13,7 +13,7 @@
     {
         "Title": "Boishali New Gown",
         "description": "Explore the features of Product 2 with this detailed description.",
-        "image_url": "https://example.com/image2.jpg",
+        "image_url": "bunnycdn.png",
         "category": "Clothing",
         "price": 29.99,
         "sale_price": "",
@@ -24,7 +24,7 @@
     {
         "Title": "Service WP",
         "description": "Product 3 is designed for maximum performance and efficiency.",
-        "image_url": "https://example.com/image3.jpg",
+        "image_url": "care.png",
         "category": "Home and Living",
         "price": "99.99",
         "sale_price": 79.99,

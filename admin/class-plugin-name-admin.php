@@ -108,7 +108,7 @@ class Plugin_Name_Admin {
 		$current_screen = get_current_screen();
 
 		// Enqueue your CSS file here.
-		wp_enqueue_style('plugin-name-globaladmin', plugins_url('../assets/css/global.css', __FILE__ ) ) ;
+		//wp_enqueue_style('plugin-name-globaladmin', plugins_url('../assets/css/global.css', __FILE__ ) ) ;
 
 		// Enqueue CSS only if Admin and on URL gloriousmotive.
 		if (

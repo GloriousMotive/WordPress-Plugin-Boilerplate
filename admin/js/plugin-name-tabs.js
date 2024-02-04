@@ -259,7 +259,7 @@ function copyToClipboard() {
 // Version 2.0
 async function fetchJsonData() {
   try {
-      const response = await fetch(pluginNameJsonContent); //Gets the JSON URL from PHP Recommended. 
+      const response = await fetch(Plugin_Name_JsonContent); //Gets the JSON URL from PHP Recommended. 
       const data = await response.json();
       return data;
   } catch (error) {
@@ -301,13 +301,19 @@ function renderProducts(products) {
       productCard.innerHTML = `
           <div><h2>${product.Title}</h2>
           <p>${product.description}</p>
-          <img src="${product.image_url}" alt="${product.Title}" style="max-width: 100%;">
-          <p>Category: ${product.category}</p>
-          ${product.price !== '' ? `<p>Price: $${product.price}</p>` : ''}
-          ${product.buy_link !== '' ? `<a href="${product.buy_link}" target="_blank">Buy Now</a>` : ''}
-          
-          ${product.sale_price !== '' ? `<p>Sale Price: $${product.sale_price}</p>` : ''}
-          ${product.sale_link !== '' ? `<a class="btn-white" href="${product.sale_link}" target="_blank">Sale Link</a>` : ''}
+          <img src="${Plugin_Name_json_img}${product.image_url}" alt="${product.Title}" style="max-width: 100%;">
+          <div class="flex-container">
+            <div class="left flex-column-inline">
+              <span>Category: ${product.category}</span>
+              <span>Type: ${product.type}</span>
+            </div>
+            <div class="right flex-column-inline">
+              ${product.price !== '' ? `<span>Price: $${product.price}</span>` : ''}
+              ${product.sale_price !== '' ? `<span class="green-text">Sale Price: $${product.sale_price}</span>` : ''}
+            </div>
+          </div>
+
+          ${product.sale_link !== '' ? `<div class="flex-container"><a class="cards-button" href="${product.sale_link}" target="_blank">Sale Link</a></div>` : `<div class="flex-container"><a class="cards-button" href="${product.buy_link}" target="_blank">Buy Now</a></div>`}
       
           
       `;

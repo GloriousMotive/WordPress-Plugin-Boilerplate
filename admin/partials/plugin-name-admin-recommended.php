@@ -40,7 +40,8 @@ if (! class_exists('Plugin_Name_Recommeneded')) {
         public function plugin_name_display_recommeneded() {
 			$this->plugin_name_display_json_content("theme");
 			echo $themesContent = '<script>
-				const pluginNameJsonContent = "'. PLUGIN_NAME_JSON_CONTENT.'"
+				const Plugin_Name_JsonContent = "'. PLUGIN_NAME_JSON_CONTENT.'";
+				const Plugin_Name_json_img = "'.PLUGIN_NAME_JSON_IMG_URL.'";
 			</script>
 			<div class="ht-menu">
 				<button class="btn-white btn" onclick="filterProducts(\'ALL\')">Show All Products</button>
@@ -101,6 +102,11 @@ if (! class_exists('Plugin_Name_Recommeneded')) {
 			$build_url = $site_url . $data_folder . $json_type . ".json";
 			$json_url = $build_url;
 			define("PLUGIN_NAME_JSON_CONTENT",$build_url);
+
+			//Build Image URL for json Products
+			$json_product_img_dir = 'admin/images/products/';
+			$json_img_url = $site_url.$json_product_img_dir;
+			define("PLUGIN_NAME_JSON_IMG_URL",$json_img_url);
 
 			// Fetch JSON data from the provided URL
 			$response = wp_remote_get($json_url);

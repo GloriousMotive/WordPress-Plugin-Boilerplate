@@ -251,7 +251,8 @@ li#toplevel_page_plugin_name a.menu-top {
    border-radius: 0.375rem;
    font-size: 1rem;
 }
-.btn-white:hover, .btn-white.active {
+.btn-white:hover, .btn-white.active,
+.green-text {
    color: var(--gm-color-success-600) !important;
 }
 button.btn-white.btn {
@@ -263,6 +264,30 @@ button.btn-white.btn {
 
 
 
+
+/* Flex Container */
+.flex-container {
+   display: flex;
+   width: 100%;
+   /* align-content: space-between; */
+   flex-direction: row;
+   justify-content: space-between;
+}
+.flex-column-inline {
+   flex-direction: column;
+   display: inline-flex;
+}
+
+
+
+.left span {
+   line-height: 1.5rem;
+}
+.right span {
+   font-size: 15px;
+   font-weight: 500;
+   line-height: 1.5rem;
+}
 
 
 
