@@ -313,7 +313,7 @@ function renderProducts(products) {
             </div>
           </div>
 
-          ${product.sale_link !== '' ? `<div class="flex-container"><a class="cards-button" href="${product.sale_link}" target="_blank">Sale Link</a></div>` : `<div class="flex-container"><a class="cards-button" href="${product.buy_link}" target="_blank">Buy Now</a></div>`}
+          ${product.sale_link !== '' ? `<div class="flex-container"><a class="cards-button" href="${product.sale_link}" target="_blank">On Sale! - Buy Now</a></div>` : `<div class="flex-container"><a class="cards-button" href="${product.buy_link}" target="_blank">Buy Now</a></div>`}
       
           
       `;

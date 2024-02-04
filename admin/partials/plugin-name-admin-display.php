@@ -75,8 +75,8 @@ $this->getRecommended = new Plugin_Name_Recommeneded();
         <div class="idss" id="gm-nav" style="--gm-tabs-min-width: 0;">
             <a href="#dashboard">Dashboard</a>
             <a href="#settings">Settings</a>
-            <a href="#themes">Themes</a>
-            <a href="#plugins">Plugins</a>
+            <a href="#extra1">Extra 1</a>
+            <a href="#extra2">Extra 2</a>
             <a href="#recommended">Recommended Products</a>
             <a href="#support">Support & Documentation</a>
             <a href="#license">License</a>
@@ -103,12 +103,12 @@ $this->getRecommended = new Plugin_Name_Recommeneded();
                     <!-- Content for Tab 2 -->
                     <p>Content of Tab 2</p>
                 </div>
-                <div id="themes" class="tab-content">
+                <div id="extra1" class="tab-content">
                     <!-- Content for Tab 3 -->
                     <p>Content of Tab 3</p>
                 </div>
 
-                <div id="plugins" class="tab-content">
+                <div id="extra2" class="tab-content">
                     <!-- Content for Tab 1 -->
                     <h3><span>All Glorious Plugins</span></h3>
                     <p>Content of Tab 1</p>
