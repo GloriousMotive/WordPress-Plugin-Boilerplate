@@ -108,6 +108,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
 
 
 
+
 /**
  * Begins execution of the plugin.
  *

@@ -17,6 +17,10 @@ if( PLUGIN_NAME_NOTIFICATION_ONOFF == 'ON' ){
   
 }
 
+// CALL SETTINGS
+//require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-settings.php';
+
+
 // CALL SERVICES
 require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-support.php';
 $this->getSupport = new Plugin_Name_Support();
@@ -101,7 +105,17 @@ $this->getRecommended = new Plugin_Name_Recommeneded();
                 </div>
                 <div id="settings" class="tab-content">
                     <!-- Content for Tab 2 -->
-                    <p>Content of Tab 2</p>
+                    <div class="gm-title">
+                        <div class="gm-title-style">
+                            <h3 class="gm-text6">
+                                <span>Settings</span>
+                            </h3>
+                        </div>
+                    </div>
+                    <?php                  
+                    $settings = $this->getSettings->plugin_name_render_settings_page();
+                    $settingecho = $this->getSettings->plugin_name_retrieve_name_and_email();
+                    ?>
                 </div>
                 <div id="extra1" class="tab-content">
                     <!-- Content for Tab 3 -->

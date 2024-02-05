@@ -61,15 +61,23 @@ class Plugin_Name_Admin {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-		
-
 		$this->plugin_name_notification_admin();
-
 		//$this->getAdminTabs = new Plugin_Name_AdminTabs();
 
 		// Hook into the WordPress admin menu action.
         add_action( 'admin_menu', array( $this, 'add_admin_page_suffix' ) );
-		
+
+		/** 
+		 * REST SETTINGS 
+		 * 
+		 * Field and Function
+		 * DO NOT REMOVE/LOCATE FROM HERE, REST WILL BREAK
+		 * 
+		 * @since 1.0.0
+		 */
+		require_once PLUGIN_NAME_DIR . '/admin/inc/plugin-name-rest-settings.php';
+		$this->getSettings = new Plugin_Name_Settings();
+
 		// Hook into the plugin action links filter.
 		add_filter( 'plugin_name_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_name_add_settings_link' ) );
 
