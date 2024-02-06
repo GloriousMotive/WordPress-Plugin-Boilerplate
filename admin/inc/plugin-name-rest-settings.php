@@ -8,6 +8,7 @@ if ( ! defined ( 'ABSPATH') ) {
 }
 
 
+
 //Init the Class
 if (! class_exists('Plugin_Name_Settings')) {
 
@@ -36,25 +37,12 @@ if (! class_exists('Plugin_Name_Settings')) {
             add_action('admin_init', array($this, 'plugin_name_register_settings'));
             add_action('rest_api_init', array($this, 'plugin_name_register_rest_route'));
             //add_action('admin_menu', array($this, 'plugin_name_add_settings_page')); //Extra Admin Menu under Settings
+
+            // Display SETTINGS
+            require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-settings.php';
+            $this->displaySettings = new Plugin_Name_DisplaySettings();
         }
     
-        // Register settings
-        public function plugin_name_register_settings() {
-            register_setting('plugin_name_settings', 'plugin_name_name');
-            register_setting('plugin_name_settings', 'plugin_name_email');
-            register_setting('plugin_name_settings', 'plugin_name_dropdown');
-            register_setting('plugin_name_settings', 'plugin_name_checkbox');
-            register_setting('plugin_name_settings', 'plugin_name_radio');
-            register_setting('plugin_name_settings', 'plugin_name_textarea');
-            register_setting('plugin_name_settings', 'plugin_name_url');
-            register_setting('plugin_name_settings', 'plugin_name_slider');
-
-            // if (isset($_POST['save_changes_button'])) {
-            //     // Redirect to the specified page after saving settings
-            //     wp_redirect(admin_url('admin.php?page=plugin-name#settings'));
-            //     exit();
-            // }
-        }
     
         // Register REST route for retrieving settings
         public function plugin_name_register_rest_route() {
@@ -74,66 +62,49 @@ if (! class_exists('Plugin_Name_Settings')) {
     
         // Add settings page
         public function plugin_name_add_settings_page() {
-            add_options_page('Plugin Name Settings', 'Plugin Name', 'manage_options', 'plugin-name-settings', array($this, 'plugin_name_render_settings_page'));
+            //add_options_page('Plugin Name Settings', 'Plugin Name', 'manage_options', 'plugin-name-settings', array($this, 'plugin_name_render_settings_page'));
         }
     
-        // Render settings page
+
+        /**
+         * Render settings page
+         * 
+         * No Edit Required - Make Changes on /partials/-admin-settings.php
+         *
+         * @since 1.0
+         */
         public function plugin_name_render_settings_page() {
             ?>
             <div class="wrap">
-                <h2>Plugin Name Settings</h2>
                 <form method="post" action="options.php">
+                    <!-- Heading -->
+                    <div class="section-heading  ">
+                        <div class="title">
+                                <h2>
+                                    <span>Plugin Name Settings Panel</span>
+                                </h2>
+                        </div>
+                        <div class="actions">		
+                            <?php submit_button('Save Changes', 'btn btn-primary btn-md', 'save_changes_button', false, array('id' => 'save-changes-button' ));?>
+                            <div id="loading-screen" style="display: none;">
+                                <img style="width: 55%;margin-bottom: 5px;" src="<?php echo esc_url(PLUGIN_NAME_URL . 'admin/images/loading.gif'); ?>" alt="Loading..." />
+                            </div>
+                        </div>
+                    </div>
+
                     <?php settings_fields('plugin_name_settings'); ?>
                     <?php do_settings_sections('plugin-name-settings'); ?>
-                    <table class="form-table">
-                        <tr>
-                            <th>Name</th>
-                            <td><input type="text" name="plugin_name_name" value="<?php echo esc_attr(get_option('plugin_name_name')); ?>" /></td>
-                        </tr>
-                        <tr>
-                            <th>Email</th>
-                            <td><input type="text" name="plugin_name_email" value="<?php echo esc_attr(get_option('plugin_name_email')); ?>" /></td>
-                        </tr>
-                        <tr>
-                            <th>Dropdown - Yes/No</th>
-                            <td>
-                                <select name="plugin_name_dropdown">
-                                    <option value="yes" <?php selected(get_option('plugin_name_dropdown'), 'yes'); ?>>Yes</option>
-                                    <option value="no" <?php selected(get_option('plugin_name_dropdown'), 'no'); ?>>No</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Checkbox</th>
-                            <td><input type="checkbox" name="plugin_name_checkbox" value="1" <?php checked(get_option('plugin_name_checkbox'), 1); ?> /></td>
-                        </tr>
-                        <tr>
-                            <th>Radio Buttons</th>
-                            <td>
-                                <label><input type="radio" name="plugin_name_radio" value="option1" <?php checked(get_option('plugin_name_radio'), 'option1'); ?>> Option 1</label><br>
-                                <label><input type="radio" name="plugin_name_radio" value="option2" <?php checked(get_option('plugin_name_radio'), 'option2'); ?>> Option 2</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Text Area</th>
-                            <td><textarea name="plugin_name_textarea"><?php echo esc_textarea(get_option('plugin_name_textarea')); ?></textarea></td>
-                        </tr>
-                        <tr>
-                            <th>URL</th>
-                            <td><input type="url" name="plugin_name_url" value="<?php echo esc_url(get_option('plugin_name_url')); ?>" /></td>
-                        </tr>
-                        <tr>
-                            <th>Slider (True/False)</th>
-                            <td><input type="checkbox" name="plugin_name_slider" value="1" <?php checked(get_option('plugin_name_slider'), 1); ?> /></td>
-                        </tr>
-                    </table>
-                    <?php submit_button('Save Changes', 'primary', 'save_changes_button', false, array('id' => 'save-changes-button')); ?>
+
+                    <?php 
+                    //selected($selected, $current, $echo)
+                        //require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-settings.php'; 
+                        $gensettings = $this->displaySettings->plugin_name_settings_general();
+                        $gensettings = $this->displaySettings->plugin_name_settings_others();
+                    ?>
+                    <?php //submit_button('Save Changes', 'primary', 'save_changes_button', false, array('id' => 'save-changes-button')); ?>
                 </form>
-                <div id="loading-screen" style="display: none;">
-                    <img src="<?php echo esc_url(PLUGIN_NAME_URL . 'admin/images/loading.gif'); ?>" alt="Loading..." />
-                    <p>settings Saved</p>
-                </div>
             </div>
+
             <script>
                 jQuery(document).ready(function ($) {
                     $('#save-changes-button').click(function () {
@@ -142,10 +113,39 @@ if (! class_exists('Plugin_Name_Settings')) {
                     });
                 });
             </script>
+
             <?php
         }
+
+
+        /**
+         * Register settings
+         *
+         * @since 1.0
+         */
+        public function plugin_name_register_settings() {
+            register_setting('plugin_name_settings', 'plugin_name_name');
+            register_setting('plugin_name_settings', 'plugin_name_email');
+            register_setting('plugin_name_settings', 'plugin_name_dropdown');
+            register_setting('plugin_name_settings', 'plugin_name_checkbox');
+            register_setting('plugin_name_settings', 'plugin_name_radio');
+            register_setting('plugin_name_settings', 'plugin_name_textarea');
+            register_setting('plugin_name_settings', 'plugin_name_url');
+            register_setting('plugin_name_settings', 'plugin_name_custom2');
+
+            // if (isset($_POST['save_changes_button'])) {
+            //     // Redirect to the specified page after saving settings
+            //     wp_redirect(admin_url('admin.php?page=plugin-name#settings'));
+            //     exit();
+            // }
+        }
     
-        // Callback for REST route to retrieve settings
+
+        /**
+         * Callback for REST route to retrieve settings
+         *
+         * @since 1.0
+         */
         public function plugin_name_get_settings() {
             // Check user capabilities
             // if (!current_user_can('manage_options')) {
@@ -160,7 +160,7 @@ if (! class_exists('Plugin_Name_Settings')) {
                 'radio'     => get_option('plugin_name_radio'),
                 'textarea'  => get_option('plugin_name_textarea'),
                 'url'       => get_option('plugin_name_url'),
-                'slider'    => get_option('plugin_name_slider'),
+                'custom2'    => get_option('plugin_name_custom2'),
             );
 
             return rest_ensure_response($settings);

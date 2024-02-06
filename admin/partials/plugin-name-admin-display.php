@@ -17,10 +17,6 @@ if( PLUGIN_NAME_NOTIFICATION_ONOFF == 'ON' ){
   
 }
 
-// CALL SETTINGS
-//require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-settings.php';
-
-
 // CALL SERVICES
 require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-support.php';
 $this->getSupport = new Plugin_Name_Support();
@@ -103,31 +99,34 @@ $this->getRecommended = new Plugin_Name_Recommeneded();
                     <h3><span>Dashboard</span></h3>
                     <p>Content of Tab 1</p>
                 </div>
+
+                <!-- Settings -->
                 <div id="settings" class="tab-content">
-                    <!-- Content for Tab 2 -->
-                    <div class="gm-title">
-                        <div class="gm-title-style">
-                            <h3 class="gm-text6">
-                                <span>Settings</span>
-                            </h3>
-                        </div>
-                    </div>
-                    <?php                  
+                    <?php
+                    //require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-settings.php';  
+                    //Display Settings
+                    //echo $gensettings = $this->displaySettings->plugin_name_settings_general();
+
                     $settings = $this->getSettings->plugin_name_render_settings_page();
-                    $settingecho = $this->getSettings->plugin_name_retrieve_name_and_email();
+                    //Outputs the Settings Saved Data
+                    //$settingecho = $this->getSettings->plugin_name_retrieve_name_and_email();
                     ?>
                 </div>
+
+                <!-- Extra 1 -->
                 <div id="extra1" class="tab-content">
                     <!-- Content for Tab 3 -->
                     <p>Content of Tab 3</p>
                 </div>
 
+                <!-- Extra 2 -->
                 <div id="extra2" class="tab-content">
                     <!-- Content for Tab 1 -->
                     <h3><span>All Glorious Plugins</span></h3>
                     <p>Content of Tab 1</p>
                 </div>
 
+                <!-- Themes / Plugins / Services Tab -->
                 <div id="recommended" class="tab-content">
                     <!-- Content for Tab recommended -->
                     <?php 
@@ -135,6 +134,7 @@ $this->getRecommended = new Plugin_Name_Recommeneded();
                     ?>
                 </div>
 
+                <!-- Support Tab -->
                 <div id="support" class="tab-content">
                     <!-- Content for Tab support -->
                     <?php 
@@ -170,6 +170,7 @@ $this->getRecommended = new Plugin_Name_Recommeneded();
                     </div>
                 </div>
 
+                <!-- License Tab -->
                 <div id="license" class="tab-content">
                     <!-- Content for Tab license -->
                     <?php 

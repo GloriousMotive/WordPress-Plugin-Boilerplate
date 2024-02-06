@@ -66,7 +66,7 @@ class Plugin_Name_Admin {
 
 		// Hook into the WordPress admin menu action.
         add_action( 'admin_menu', array( $this, 'add_admin_page_suffix' ) );
-
+		add_action( 'admin_head', array( $this, 'hide_admin_notices_in_my_plugin' ) );
 		/** 
 		 * REST SETTINGS 
 		 * 
@@ -98,7 +98,11 @@ class Plugin_Name_Admin {
 	 */
 	public function enqueue_styles() {
 
+		//Main Admin CSS
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
+
+		// Admin Style css
+		wp_enqueue_style('plugin-name-app', plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin-app.css', array(), $this->version, 'all' );
 		
 	}
 
@@ -206,7 +210,7 @@ class Plugin_Name_Admin {
 	 * @since 1.0.0
 	 */
 	// Check and update the plugin version
-	function plugin_name_notification_admin() {
+	public function plugin_name_notification_admin() {
 		$plugin_name_current_version = $this->version; // Replace with your current plugin version
 		$plugin_name_stored_version = get_option('plugin_name_version', '');
 
@@ -217,6 +221,25 @@ class Plugin_Name_Admin {
 			// Plugin version has not changed, do not display the banner
 			//remove_action('admin_notices', 'display_notification_banner');
 			update_option('plugin_name_version', $plugin_name_current_version);
+		}
+	}
+
+
+	
+	/**
+	 * Hides All Admin Notices within the plugin $slug
+	 * 
+	 * @since 1.0.0
+	 */
+	//add_action('admin_head', array($this, 'hide_admin_notices_in_my_plugin' ) );
+	public function hide_admin_notices_in_my_plugin() {
+		$screen = get_current_screen();
+		if ($screen->base == 'toplevel_page_plugin-name') {
+			echo '<style>
+			.notice, .update-nag, .updated, .error, .is-dismissible {
+				display: none;
+			}
+			</style>';
 		}
 	}
 
