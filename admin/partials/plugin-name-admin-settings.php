@@ -57,6 +57,18 @@ if (! class_exists('Plugin_Name_DisplaySettings')) {
             <div class="md:col-span-2">
                 <div class="form-section-wrapper ">
                     <div class="form-section">
+
+                        <div class="toggle-field-wrapper form-group">
+                            <div class="toggle-field-text">
+                                <label for="affiliation_protocol_enabled">Live Chat Support</label>
+                                <p class="form-text">Enable Live Chat Support?</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" name="glorious_live_chat" value="1" <?php checked(get_option('glorious_live_chat'), 1); ?>>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
                         <div class="toggle-field-wrapper form-group">
                             <div class="toggle-field-text">
                                 <label for="affiliation_protocol_enabled">Allow New Custom 2</label>

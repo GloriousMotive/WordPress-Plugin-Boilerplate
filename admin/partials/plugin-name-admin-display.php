@@ -29,6 +29,10 @@ $this->getLicense = new Plugin_Name_License();
 require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-recommended.php';
 $this->getRecommended = new Plugin_Name_Recommeneded();
 
+//Get Dashboard
+require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-dashboard.php';
+$this->getDashboard = new Plugin_Name_Dashboard();
+
 
 
 ?>
@@ -95,9 +99,10 @@ $this->getRecommended = new Plugin_Name_Recommeneded();
 		<div class="gm-content" id="app">
             <div class="conts">
                 <div id="dashboard" class="tab-content active">
-                    <!-- Content for Tab 1 -->
-                    <h3><span>Dashboard</span></h3>
-                    <p>Content of Tab 1</p>
+                    <!-- Content for Dashboard -->
+                    <?php
+                    $displayDash = $this->getDashboard->plugin_name_dashboard_display();
+                    ?>
                 </div>
 
                 <!-- Settings -->
@@ -159,7 +164,7 @@ $this->getRecommended = new Plugin_Name_Recommeneded();
                                 <p>### DEBUG DATA STARTS ###.</p>
                                 <?php
                                 // CALL SERVICES
-                                require_once PLUGIN_NAME_DIR . '/admin/partials/plugin-name-admin-status.php';
+                                require_once PLUGIN_NAME_DIR . '/admin/inc/plugin-name-admin-status.php';
                                 ?>
                                 <p>### DEBUG DATA ENDS ###.</p>
                             </div>

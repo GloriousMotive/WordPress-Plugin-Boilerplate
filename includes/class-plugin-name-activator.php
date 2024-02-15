@@ -29,10 +29,19 @@ class Plugin_Name_Activator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function activate() {
 
+	public function __construct() {
+
+		$this->activate();
+		
 	}
 
+	public static function activate() {
+
+		//Enables the Live Chat Support Option 
+		update_option('glorious_live_chat', 1);
+
+	}
 
 
 }

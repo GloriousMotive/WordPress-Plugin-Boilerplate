@@ -132,6 +132,7 @@ if (! class_exists('Plugin_Name_Settings')) {
             register_setting('plugin_name_settings', 'plugin_name_textarea');
             register_setting('plugin_name_settings', 'plugin_name_url');
             register_setting('plugin_name_settings', 'plugin_name_custom2');
+            register_setting('plugin_name_settings', 'glorious_live_chat');
 
             // if (isset($_POST['save_changes_button'])) {
             //     // Redirect to the specified page after saving settings
@@ -161,6 +162,7 @@ if (! class_exists('Plugin_Name_Settings')) {
                 'textarea'  => get_option('plugin_name_textarea'),
                 'url'       => get_option('plugin_name_url'),
                 'custom2'    => get_option('plugin_name_custom2'),
+                'glorious_live_chat'  => get_option('glorious_live_chat'),
             );
 
             return rest_ensure_response($settings);

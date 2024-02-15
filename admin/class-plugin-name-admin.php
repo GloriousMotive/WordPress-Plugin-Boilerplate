@@ -67,6 +67,8 @@ class Plugin_Name_Admin {
 		// Hook into the WordPress admin menu action.
         add_action( 'admin_menu', array( $this, 'add_admin_page_suffix' ) );
 		add_action( 'admin_head', array( $this, 'hide_admin_notices_in_my_plugin' ) );
+		add_action( 'admin_head', array( $this, 'add_crisp_chat_script_to_head') );
+
 		/** 
 		 * REST SETTINGS 
 		 * 
@@ -99,10 +101,17 @@ class Plugin_Name_Admin {
 	public function enqueue_styles() {
 
 		//Main Admin CSS
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
+		//wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
 
-		// Admin Style css
-		wp_enqueue_style('plugin-name-app', plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin-app.css', array(), $this->version, 'all' );
+		// Check if the current page matches the desired URL
+		/**
+		 * Load Styles only when the slug is "plugin-name"
+		 */
+		if ( isset( $_GET['page'] ) && $_GET['page'] === 'plugin-name' ) {
+			// Enqueue your CSS file
+			wp_enqueue_style( 'plugin-name-admin-app', plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin-app.css', array(), $this->version, 'all' );
+			wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
+		}
 		
 	}
 
@@ -118,20 +127,8 @@ class Plugin_Name_Admin {
 		//wp_enqueue_script($handle, $src, $deps, $ver, $in_footer)
 
 		$current_screen = get_current_screen();
-
-		// Enqueue your CSS file here.
-		//wp_enqueue_style('plugin-name-globaladmin', plugins_url('../assets/css/global.css', __FILE__ ) ) ;
-
-		// Enqueue CSS only if Admin and on URL gloriousmotive.
-		if (
-				$current_screen->id === 'toplevel_page_plugin_name' ||
-				( $current_screen->id === 'plugin-name-submenu' && $current_screen->parent_base === 'plugin-name' )
-		) {
-				// Enqueue your CSS file here.
-				wp_enqueue_style('plugin-name-admin', plugins_url('../css/plugin-name-admin.css', __FILE__ ) ) ;
-		}
-
 	}
+
 
 
 
@@ -242,6 +239,31 @@ class Plugin_Name_Admin {
 			</style>';
 		}
 	}
+
+
+	/**
+	 * Add the following code to your theme's functions.php file
+	 */
+	public function add_crisp_chat_script_to_head() {
+		// Check if the option 'glorious_live_chat' is set to 1
+		if (get_option('glorious_live_chat') == 1) {
+			// Enqueue the JavaScript code snippet to the head
+			?>
+			<script type="text/javascript">
+				window.$crisp=[];
+				window.CRISP_WEBSITE_ID="2ba7322a-3946-4920-af5d-eff26031f254";
+				(function(){
+					d=document;
+					s=d.createElement("script");
+					s.src="https://client.crisp.chat/l.js";
+					s.async=1;
+					d.getElementsByTagName("head")[0].appendChild(s);
+				})();
+			</script>
+			<?php
+		}
+	}
+		
 
 
 

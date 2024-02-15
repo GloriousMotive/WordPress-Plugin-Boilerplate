@@ -355,7 +355,14 @@ button.btn-white.btn {
   
 
 
-
+  .gm-title h2 > span {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   font-size: 1.4rem;
+   line-height: 2rem;
+   font-weight: 500;
+}
 
 
 
