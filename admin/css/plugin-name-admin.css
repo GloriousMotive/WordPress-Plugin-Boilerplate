@@ -1024,3 +1024,25 @@ gm-breadcrumb.hydrated {
    margin: 0 var(--sc-spacing-x-small);
    user-select: none;
 }
+
+body {
+   font-family: inter;
+}
+h3 {
+   font-size: 16px;
+   font-weight: 600;
+}
+
+/** DESKTOP and LAPTOP **/
+@media screen and (max-width: 1700px) and (min-width: 1000px)  {
+   .gm-container {
+      max-width: 75%;
+   }
+}
+
+/** MOBILE ONLY **/
+@media screen and (max-width: 999px)  {
+   .gm-container {
+      max-width: 65%;
+   }
+}
